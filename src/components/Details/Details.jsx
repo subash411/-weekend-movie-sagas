@@ -1,8 +1,9 @@
-import { useSelector } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import {useHistory} from 'react-router-dom';
 
 function Details () {
     const history = useHistory();
+    const dispatch = useDispatch ();
     const movie = useSelector(store => store.movie);
     console.log('lets checkout movie', movie[0]);
 
