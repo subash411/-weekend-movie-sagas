@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import {useEffect} from 'react';
 import Button from '@mui/material/Button';
+import './Details.css';
 
 function Details () {
     const history = useHistory();
@@ -39,7 +40,7 @@ function Details () {
                     src={movie.poster}
                 />
                 <h3>Movie Description</h3>
-                <p>{movie.description}</p><br/>
+                <p className="description">{movie.description}</p><br/>
                 
                 <h3>Movie Genres</h3>
                 <h1>{selectedGenres.genre_name}</h1>

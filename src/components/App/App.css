@@ -1,9 +1,13 @@
 .App {
   text-align: center;
-  background-image: url('./Image/image.jpeg');
-
+  
 }
 
+body{
+  background-image: url('./Image/image.jpeg');
+  height: 1000px;
+  background-size: cover;
+}
 
 .App-header {
   background-color: #222;
