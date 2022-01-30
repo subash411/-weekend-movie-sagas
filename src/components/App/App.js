@@ -9,19 +9,11 @@ function App() {
       <h1>The Movies Saga!</h1>
 
       <Router> 
-        <nav>
-          <Link className="Link" to="/">Movie List</Link>
-        </nav> 
         
-
         <Route path="/" exact>
           <MovieList />
         </Route>
 
-        
-
-        
-        
         {/* Details page */}
         <Route path="/details" exact>
           <Details />

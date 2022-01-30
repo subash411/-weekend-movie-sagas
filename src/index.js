@@ -33,16 +33,17 @@ function* fetchAllMovies() {
 function* fetchDetailsMovie(action) {
     console.log('in details');
     try{
-        const movie = yield axios.get(`/api/movie${action.payload}`);
-        console.log('get detail:', movie.data);
+        const genres = yield axios.get('/api/genres' ,{params:{movieID: action.payload}});
+        console.log('get movie genres:', genres.data);
         yield put({
-            type: 'SET_DETAILS', 
-            payload: movie.data
+            type: 'SET_MOVIE_DETAILS', 
+            payload: genres.data[0].array_agg
         })
-    } catch {
-        console.log('get all error');
+    } catch (error) {
+        console.log('get all error', error);
     }
 }
+
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
@@ -69,7 +70,7 @@ const genres = (state = [], action) => {
 
 const movie = (state = [], action) => {
     switch (action.type) {
-        case 'SET_DETAILS':
+        case 'SET_MOVIE_DETAILS':
             return action.payload;
             default:
                 return state;
