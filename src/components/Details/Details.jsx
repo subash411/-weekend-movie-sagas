@@ -40,16 +40,7 @@ function Details () {
                 <p>{movie.description}</p><br/>
                 
                 <h3>Movie Genres</h3>
-                
-                <table className="table">
-                    <tbody>
-                        {genres.map(genre => (
-                            <tr key={genre}>
-                                <td>{movie.genre}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+                <h1>selectedGenres.genre_name</h1>
             </div>
             <Button variant = "contained"  onClick={onGoBack}>
                 HOME
