@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import {useEffect} from 'react';
+import Button from '@mui/material/Button';
 
 function Details () {
     const history = useHistory();
@@ -9,7 +10,7 @@ function Details () {
 
     const movie = useSelector(store => store.movie);
     const genres = useSelector(store => store.genres)
-    console.log('lets checkout movie', movie, genres);
+    console.log('details for:', movie, genres);
 
     useEffect(() => {
         dispatch({ 
@@ -22,7 +23,7 @@ function Details () {
 
     const onGoBack = () => {
         history.push('/');
-    }
+    };
 
     
     return (
@@ -37,18 +38,23 @@ function Details () {
                 />
                 <h3>Movie Description</h3>
                 <p>{movie.description}</p><br/>
+                
                 <h3>Movie Genres</h3>
+                
                 <table className="table">
                     <tbody>
-                        {genres.map(genres => (
-                            <tr key={genres}>
-                                <td>{genres}</td>
+                        {genres.map(genre => (
+                            <tr key={genre}>
+                                <td>{movie.genre}</td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
             </div>
-       <button onClick={onGoBack}>HOME</button>
+            <Button variant = "contained"  onClick={onGoBack}>
+                HOME
+            </Button>
+       
         </>
     )
 }

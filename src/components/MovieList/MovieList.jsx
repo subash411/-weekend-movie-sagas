@@ -2,6 +2,11 @@ import React, { useEffect } from 'react';
 import {useHistory} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import './MovieList.css'
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+
 
 function MovieList() {
 
@@ -27,14 +32,20 @@ function MovieList() {
             <section className="movies">
                 {movies.map(movie => {
                     return (
-                        <div key={movie.id} >
+                        <Card key={movie.id} sx={{maxWidth: 200}} onClick={() => details(movie)}>
+                            <CardMedia
+                              component="img"
+                             // height="200"
+                              image= {movie.poster}
+                              alt= {movie.title}
+                            />
+
+                        <CardContent>
+                            <Typography gutterBottom variant="p" component="div">
                             <h3>{movie.title}</h3>
-                            <img src={movie.poster}
-                             alt={movie.title}
-                             onClick={() => details(movie)}
-                             />
-                            
-                        </div>
+                             </Typography>
+                        </CardContent>
+                        </Card>
                     );
                 })}
             </section>

@@ -19,7 +19,6 @@ router.get('/', (req, res) => {
     GROUP BY "movies"."title";
   `;
 
-
   let queryParams = [
     req.query.movieID
   ];
