@@ -4,8 +4,6 @@ const pool = require('../modules/pool')
 
 router.get('/', (req, res) => {
   // Add query to get all genres
-  console.log('get genre in router', req.query);
-
   const selectQuery = `
   SELECT
     movies.id,
@@ -23,7 +21,7 @@ ORDER BY movies.id;
 
   pool.query(selectQuery)
   .then(results => {
-    console.log('results, ',  results);
+    console.log('results', results);
     res.send(results.rows);
   })
 

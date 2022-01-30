@@ -11,6 +11,8 @@ function Details () {
     const movie = useSelector(store => store.movie);
     const genres = useSelector(store => store.genres)
     console.log('details for:', movie, genres);
+    const selectedGenres = genres[movie.id -1]; 
+    console.log('selectedGenres', selectedGenres);
 
     useEffect(() => {
         dispatch({ 
@@ -40,7 +42,7 @@ function Details () {
                 <p>{movie.description}</p><br/>
                 
                 <h3>Movie Genres</h3>
-                <h1>selectedGenres.genre_name</h1>
+                <h1>{selectedGenres.genre_name}</h1>
             </div>
             <Button variant = "contained"  onClick={onGoBack}>
                 HOME
